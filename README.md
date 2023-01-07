@@ -1,2 +1,3 @@
 # fullstack_board
-react+node web board project 
+## MERN Stack Web Board Project
+* MongoDB + Express + React + Node
