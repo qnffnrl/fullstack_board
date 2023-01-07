@@ -10,5 +10,6 @@ const postSchema = new mongoose.Schema({
     updated: { type: Date },
 });
 
+
 const Post = mongoose.model("post", postSchema);
 module.exports = Post;
