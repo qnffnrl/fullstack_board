@@ -5,7 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
-require("dotenv").config({ path: "./config.env" });
+require("dotenv").config({ path: "./.env" });
 const port = process.env.PORT || 5000;
 const { ATLAS_URI } = process.env;
 
