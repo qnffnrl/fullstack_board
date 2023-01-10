@@ -57,22 +57,6 @@ function Edit(props) {
 
     return (
         <div className="container mb-3">
-            <nav aria-label="breadcrumb">
-                <ol className="breadcrumb p-1 pl-2 pr-2">
-                    <li className="breadcrumb-item">
-                        <a href="/">Home</a>
-                    </li>
-                    <li className="breadcrumb-item">
-                        <a href="/posts">Board</a>
-                    </li>
-                    <li className="breadcrumb-item">
-                        <a href={`/posts/${form._id}`}>{form.title}</a>
-                    </li>
-                    <li className="breadcrumb-item active" aria-current="page">
-                        Edit Post
-                    </li>
-                </ol>
-            </nav>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <label htmlFor="title">Title</label>

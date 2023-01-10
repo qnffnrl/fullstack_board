@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {Link, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 
 function PostDetail(props) {
-
-
+    
     const params = useParams();
     const [post, setPost] = useState({});
+    const navigate = useNavigate();
 
+    /**
+     *  게시글 내용 가져오기 
+     */
     async function fetchData(){
         const id = params.id.toString();
         const response = await fetch(`http://localhost:5000/posts/${id}`);
@@ -24,7 +27,23 @@ function PostDetail(props) {
         fetchData();
     }, []);
 
+    /**
+     *  게시글 삭제 
+     */
+    async function deletePost() {
+        if (window.confirm("정말 삭제 하시겠습니까?")){
+            await fetch(`http://localhost:5000/posts/${params.id}`, {
+                method: "DELETE",
+            });
 
+            alert("삭제 완료")
+            navigate(`/Board/`);
+        }
+        else{
+            return;
+        }
+    }
+    
     return (
         <div className="container mb-3">
             <div className="card">
@@ -58,7 +77,7 @@ function PostDetail(props) {
                 <Link className="me-1 btn btn-info" to={`/posts/${post._id}/edit`}>
                     Edit
                 </Link>
-                <button className="btn btn-danger">Delete</button>
+                <button className="btn btn-danger" onClick={() => deletePost()}>Delete</button>
             </div>
         </div>
     );
