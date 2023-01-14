@@ -34,15 +34,21 @@ function Edit(props) {
             writer: form.writer,
         };
 
-        await fetch(`http://localhost:5000/posts/${params.id}`, {
-            method: "PUT",
-            body: JSON.stringify(editedPost),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
+        if(window.confirm("정말 수정하겠습니까?")){
+            await fetch(`http://localhost:5000/posts/${params.id}`, {
+                method: "PUT",
+                body: JSON.stringify(editedPost),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
 
-        navigate(`/posts/${form._id}`);
+            navigate(`/posts/${form._id}`);
+        }
+        else{
+            return;
+        }
+
     }
 
     function updateForm(value) {
