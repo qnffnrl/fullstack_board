@@ -61,8 +61,6 @@ function PostDetail(props) {
                         <div className="post-info card m-2 p-2">
                             <div>
                                 <span className="text-black">Created : {post.createdAt}</span>
-                                <br />
-                                { post.updatedAt ? (<span>Updated : {post.updatedAt} </span>) : (<span></span>) }
                             </div>
                         </div>
                     </div>
