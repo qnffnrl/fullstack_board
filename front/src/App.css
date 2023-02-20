@@ -35,3 +35,7 @@ hr{
 .ellipsis:hover{
     color: red;
 }
+
+#about-image{
+    width: 130vh;
+}
